@@ -1,1 +1,2 @@
-# 26_digital_test
+# Project: 26_digital_test
+# Author: Ryan Bloor
