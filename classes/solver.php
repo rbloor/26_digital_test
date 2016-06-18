@@ -2,7 +2,7 @@
 
 class Solver {
 
-	$answer = "";
+	public $answer = "";
 
 	public function solve($type, $args) {
 		switch ($type) {
