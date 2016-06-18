@@ -17,7 +17,6 @@ class Request {
 		$this->data = curl_exec($ch);
 		$this->info = curl_getinfo($ch);
 		curl_close($ch);
-		return $this;
 	}
 
 	public function validate() {
