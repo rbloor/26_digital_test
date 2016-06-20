@@ -23,7 +23,8 @@ class Request {
 	}
 
 	public function validate() {
-		return (!empty($this->info) && $this->info['http_code'] == "200") ? true : false;
+		// check for 200 response code and if url of response matches what we sent
+		return (!empty($this->info) && $this->info['http_code'] == "200" && $this->info['url'] == STAGING_URL) ? true : false;
 	}
 
 }

@@ -21,11 +21,13 @@ class Parser {
 		} elseif(stripos($this->content_type, "text") !== false) {
 			$this->parsePlain();
 		} 
+		$this->convertSingleArgumentToArray(); // for problems with one argument
 		return $this;
 	}
 
 	public function parseXml() {
-		$this->parsed_data = json_decode(json_encode(simplexml_load_string($this->raw_data)));
+		// use json_encode/decode to convert xml object to normal object
+		$this->parsed_data = json_decode(json_encode(simplexml_load_string($this->raw_data))); 
 	}
 
 	public function parseJson() {
@@ -40,6 +42,12 @@ class Parser {
 		$this->parsed_data->challenge->arguments = preg_split("/- /", trim($values[4]), -1, PREG_SPLIT_NO_EMPTY);
 		$this->parsed_data->endpoint = trim($values[5]);
 	}
+
+	public function convertSingleArgumentToArray() {
+		if (!is_array($this->parsed_data->challenge->arguments)) {
+			$this->parsed_data->challenge->arguments = array($this->parsed_data->challenge->arguments);
+		}
+	} 
 
 }
 
