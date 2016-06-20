@@ -3,7 +3,7 @@
 
 A simple website that does the following: 
 
-1. fetches a problem from xxx using a CURL GET request
+1. fetches a problem from http://tech-test.twentysixstaging.com/ using a CURL GET request
 
 2. parses the result based on its content type, e.g. xml, json or text
 
