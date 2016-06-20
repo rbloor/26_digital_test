@@ -19,9 +19,9 @@ NOTE:
 
 There are numerous database errors (on the staging site) when submitting a solution to the server, which means that step 5 cannot not parse the request properly. As a workaround, I've done a naive preg_match for the string "Correct!" in the data response.
 
-Once the database errors are fixed, line 55 of index.php should be replaced with the following to properly determine if the answer to the problem was correct. 
+Once the database errors are fixed, the variable on line 55 of index.php should be replaced with the following to properly determine if the answer to the problem was correct. 
 
-<td>echo $response_parser->parsed_data->message;</td>
+<td>$response_parser->parsed_data->message;</td>
 
 DESIGN CHOICES:
 
